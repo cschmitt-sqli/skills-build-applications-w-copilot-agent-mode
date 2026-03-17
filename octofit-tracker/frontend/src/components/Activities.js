@@ -18,14 +18,35 @@ const Activities = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Activities</h2>
-      <ul className="list-group">
-        {activities.map((activity, idx) => (
-          <li key={idx} className="list-group-item">
-            <strong>{activity.username}</strong>: {activity.type} ({activity.duration} min, {activity.calories} kcal)
-          </li>
-        ))}
-      </ul>
+      <h2 className="mb-4">Activities</h2>
+      <div className="card">
+        <div className="card-body">
+          <table className="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Type</th>
+                <th>Duration (min)</th>
+                <th>Calories (kcal)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {activities.map((activity, idx) => (
+                <tr key={idx}>
+                  <td>{activity.username}</td>
+                  <td>{activity.type}</td>
+                  <td>{activity.duration}</td>
+                  <td>{activity.calories}</td>
+                  <td>
+                    <button className="btn btn-primary btn-sm" onClick={() => alert(JSON.stringify(activity, null, 2))}>Details</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

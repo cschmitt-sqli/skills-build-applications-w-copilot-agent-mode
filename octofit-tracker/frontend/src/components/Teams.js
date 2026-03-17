@@ -18,14 +18,29 @@ const Teams = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Teams</h2>
-      <ul className="list-group">
-        {teams.map((team, idx) => (
-          <li key={idx} className="list-group-item">
-            <strong>{team.name}</strong>
-          </li>
-        ))}
-      </ul>
+      <h2 className="mb-4">Teams</h2>
+      <div className="card">
+        <div className="card-body">
+          <table className="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {teams.map((team, idx) => (
+                <tr key={idx}>
+                  <td>{team.name}</td>
+                  <td>
+                    <button className="btn btn-primary btn-sm" onClick={() => alert(JSON.stringify(team, null, 2))}>Details</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
